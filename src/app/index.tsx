@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Text, View } from "react-native";
 import { Divisor } from "../components/divisor";
 import * as StepIndicator from "../components/step-indicator";
+import { signUpSteps } from "../utils/sign-up-steps";
 
 export default function Home() {
-  const [stepsCompleted, setStepsCompleted] = useState<string[]>(["first"]);
+  const [stepsCompleted, setStepsCompleted] = useState<string[]>([]);
 
   return (
     <View className="flex-1 items-center justify-center bg-white p-5">
@@ -16,29 +17,18 @@ export default function Home() {
           <View className="relative flex-row items-center justify-between">
             <StepIndicator.Line />
 
-            <StepIndicator.Circle isComplete={stepsCompleted.includes("first")}>
-              <StepIndicator.Label
-                isComplete={stepsCompleted.includes("first")}
+            {signUpSteps.map((step) => (
+              <StepIndicator.Circle
+                key={step.key}
+                isComplete={stepsCompleted.includes(step.key)}
               >
-                Account Information
-              </StepIndicator.Label>
-            </StepIndicator.Circle>
-
-            <StepIndicator.Circle
-              isComplete={stepsCompleted.includes("second")}
-            >
-              <StepIndicator.Label
-                isComplete={stepsCompleted.includes("second")}
-              >
-                Personal Information
-              </StepIndicator.Label>
-            </StepIndicator.Circle>
-
-            <StepIndicator.Circle isComplete={stepsCompleted.includes("last")}>
-              <StepIndicator.Label isComplete={stepsCompleted.includes("last")}>
-                Success!
-              </StepIndicator.Label>
-            </StepIndicator.Circle>
+                <StepIndicator.Label
+                  isComplete={stepsCompleted.includes(step.key)}
+                >
+                  {step.label}
+                </StepIndicator.Label>
+              </StepIndicator.Circle>
+            ))}
 
             <Divisor />
           </View>
