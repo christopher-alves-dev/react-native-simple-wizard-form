@@ -1,8 +1,17 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const StepIndicatorLine = () => {
-  return <View className=" absolute h-0.5 w-full bg-white" />;
+  return <View style={styles.container} />;
 };
+
+const styles = StyleSheet.create({
+  container: {
+    position: "absolute",
+    height: 1,
+    width: "100%",
+    backgroundColor: "white",
+  },
+});
 
 export const Line = StepIndicatorLine;

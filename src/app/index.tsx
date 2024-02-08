@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Divisor } from "../components/divisor";
 import * as StepIndicator from "../components/step-indicator";
 import { signUpSteps } from "../utils/sign-up-steps";
@@ -8,27 +8,23 @@ export default function Home() {
   const [stepsCompleted, setStepsCompleted] = useState<string[]>([]);
 
   return (
-    <View className="flex-1 items-center justify-center bg-white p-5">
-      <View className="w-full rounded-lg bg-blue-500">
-        <View className="gap-5 p-5">
-          <Text className="text-xl capitalize text-white">
-            Create account steps
-          </Text>
-          <View className="relative flex-row items-center justify-between">
+    <View style={styles.container}>
+      <View style={styles.signUpContainer}>
+        <View style={styles.signUpHeader}>
+          <Text style={styles.signUpHeading}>Create account steps</Text>
+          <View style={styles.stepsIndicatorContainer}>
             <StepIndicator.Line />
 
-            {signUpSteps.map((step) => (
-              <StepIndicator.Circle
-                key={step.key}
-                isComplete={stepsCompleted.includes(step.key)}
-              >
-                <StepIndicator.Label
-                  isComplete={stepsCompleted.includes(step.key)}
-                >
-                  {step.label}
-                </StepIndicator.Label>
-              </StepIndicator.Circle>
-            ))}
+            {signUpSteps.map((step) => {
+              const isComplete = stepsCompleted.includes(step.key);
+              return (
+                <StepIndicator.Container key={step.key} isComplete={isComplete}>
+                  <StepIndicator.Label isComplete={isComplete}>
+                    {step.label}
+                  </StepIndicator.Label>
+                </StepIndicator.Container>
+              );
+            })}
 
             <Divisor />
           </View>
@@ -37,3 +33,33 @@ export default function Home() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: "#fff",
+  },
+  signUpContainer: {
+    width: "100%",
+    borderRadius: 8,
+    backgroundColor: "#6291F7",
+  },
+  signUpHeader: {
+    gap: 20,
+    padding: 20,
+  },
+  signUpHeading: {
+    fontSize: 20,
+    color: "#fff",
+    textTransform: "capitalize",
+  },
+  stepsIndicatorContainer: {
+    position: "relative",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+});

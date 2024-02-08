@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { Text } from "react-native";
-import { twMerge } from "tailwind-merge";
+import { StyleSheet, Text } from "react-native";
 
 type Props = {
   isComplete?: boolean;
@@ -12,15 +11,23 @@ const StepIndicatorLabel = ({
 }: PropsWithChildren<Props>) => {
   return (
     <Text
-      className={twMerge(
-        "text-xs",
-        isComplete ? "text-white" : "text-gray-100",
-      )}
+      style={[styles.label, isComplete && styles.isComplete]}
       numberOfLines={2}
     >
       {children}
     </Text>
   );
 };
+
+const styles = StyleSheet.create({
+  label: {
+    fontSize: 12,
+    color: "#e5e7eb",
+  },
+  isComplete: {
+    fontWeight: "bold",
+    color: "#fff",
+  },
+});
 
 export const Label = StepIndicatorLabel;

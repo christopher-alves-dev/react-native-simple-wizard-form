@@ -2,5 +2,15 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 export const Divisor = () => {
-  return <View className="absolute -bottom-5 h-0.5 w-full bg-gray-100" />;
+  return <View style={styles.line} />;
 };
+
+const styles = StyleSheet.create({
+  line: {
+    position: "absolute",
+    bottom: -20,
+    height: 1,
+    width: "100%",
+    backgroundColor: "#f3f4f6",
+  },
+});
