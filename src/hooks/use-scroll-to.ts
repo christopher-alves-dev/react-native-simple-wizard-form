@@ -1,21 +1,21 @@
 import { useRef } from "react";
 import { Dimensions, ScrollView } from "react-native";
 
-type stepsForm = "account" | "personal";
+export type StepsForm = "account" | "personal" | "complete";
 
 export const useStepScroll = () => {
   const scrollRef = useRef<ScrollView>(null);
   const { width } = Dimensions.get("window");
   const stepFormComponentWidth = width - 40;
 
-  const handleGoToNextStep = (currentStep: stepsForm) => {
+  const handleGoToNextStep = (nextStep: StepsForm) => {
     const formSteps = {
-      account: stepFormComponentWidth,
-      personal: stepFormComponentWidth * 2,
+      personal: stepFormComponentWidth,
+      complete: stepFormComponentWidth * 2,
     };
 
     scrollRef?.current?.scrollTo({
-      x: formSteps[currentStep as keyof typeof formSteps],
+      x: formSteps[nextStep as keyof typeof formSteps],
     });
   };
 
