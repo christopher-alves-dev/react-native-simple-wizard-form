@@ -1,5 +1,6 @@
+import { normalizeFont } from "@/src/utils/normalize-font";
 import React from "react";
-import { StyleProp, StyleSheet, Text, TextStyle, View } from "react-native";
+import { StyleProp, StyleSheet, Text, TextStyle } from "react-native";
 
 type Props = {
   title: string;
@@ -13,8 +14,8 @@ export const StepFormHeading = ({ title, style }: Props) => {
 const styles = StyleSheet.create({
   heading: {
     flexGrow: 0,
-    fontSize: 20,
-    color: "white",
+    fontSize: normalizeFont(20),
+    color: "#fff",
     textTransform: "capitalize",
   },
 });

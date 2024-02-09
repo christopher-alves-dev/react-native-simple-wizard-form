@@ -1,3 +1,5 @@
+import { normalizeByPlatform } from "@/src/utils/normalize-by-platform";
+import { normalizeFont } from "@/src/utils/normalize-font";
 import React from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
@@ -16,17 +18,17 @@ export const InputForm = ({ label }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 6,
+    gap: normalizeByPlatform(6, 6),
   },
   label: {
-    fontSize: 16,
+    fontSize: normalizeFont(16),
     color: "#fff",
     textTransform: "capitalize",
   },
   input: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+    paddingHorizontal: normalizeByPlatform(8, 8),
+    paddingVertical: normalizeByPlatform(4, 10),
     backgroundColor: "#fff",
-    borderRadius: 2,
+    borderRadius: normalizeByPlatform(2, 2),
   },
 });

@@ -1,3 +1,4 @@
+import { normalizeFont } from "@/src/utils/normalize-font";
 import React, { PropsWithChildren } from "react";
 import { StyleSheet, Text } from "react-native";
 
@@ -21,7 +22,7 @@ const StepIndicatorLabel = ({
 
 const styles = StyleSheet.create({
   label: {
-    fontSize: 12,
+    fontSize: normalizeFont(12),
     color: "#e5e7eb",
   },
   isComplete: {

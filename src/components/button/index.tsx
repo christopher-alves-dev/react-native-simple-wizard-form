@@ -1,12 +1,6 @@
+import { normalizeFont } from "@/src/utils/normalize-font";
 import React from "react";
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableNativeFeedback,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
 type Props = {
   onPress: () => void;
@@ -34,10 +28,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#9500ff",
   },
   text: {
-    fontSize: 16,
-    lineHeight: 21,
+    width: "100%",
+    textAlign: "center",
+    fontSize: normalizeFont(16),
+    textTransform: "uppercase",
     fontWeight: "bold",
-    letterSpacing: 0.25,
     color: "#fff",
   },
 });
