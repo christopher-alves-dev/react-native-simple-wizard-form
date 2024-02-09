@@ -13,7 +13,7 @@ export const StepFormHeading = ({ title, style }: Props) => {
 
 const styles = StyleSheet.create({
   heading: {
-    flexGrow: 0,
+    flexGrow: 1,
     fontSize: normalizeFont(20),
     color: "#fff",
     textTransform: "capitalize",

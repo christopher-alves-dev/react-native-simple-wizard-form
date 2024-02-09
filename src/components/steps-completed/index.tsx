@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
   description: {
     fontSize: normalizeFont(20),
     textAlign: "center",
-    color: "#fff",
+    color: "#9ca3af",
   },
 });
