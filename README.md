@@ -10,6 +10,10 @@
 This is an application that contains the layout of a simple wizard form for mobile applications.
 The purpose of the project is to have a form that, when proceeding to the next step, scrolls horizontally in a snap style, so it does not contain any form validation, yet.
 
+| Android               | iOS               |
+| ---------------------- | ---------------------- |
+| <img src="https://github.com/christopher-alves-dev/react-native-simple-wizard-form/assets/51724197/b111ff14-897a-430e-aeab-6267ac537940" height="500" /> | <img src="https://github.com/christopher-alves-dev/react-native-simple-wizard-form/assets/51724197/5b1d2160-5b86-4522-bda4-bd1ad83593bc" height="500" /> |
+
 ## Technologies Used:
 
 - [Expo](https://docs.expo.dev/)
