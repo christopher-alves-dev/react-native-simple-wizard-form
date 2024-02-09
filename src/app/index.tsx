@@ -1,22 +1,18 @@
+import { ArrowLeftCircle } from "lucide-react-native";
 import { useState } from "react";
-import {
-  KeyboardAvoidingView,
-  StyleSheet,
-  Text,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { Button } from "../components/button";
 import { Divisor } from "../components/divisor";
 import { InputForm } from "../components/input-form";
 import { ScrollableContainer } from "../components/scrollable-container";
 import { StepFormHeading } from "../components/step-form-heading";
 import { StepFormWrapper } from "../components/step-form-wrapper";
 import * as StepIndicator from "../components/step-indicator";
+import { StepsCompleted } from "../components/steps-completed";
 import { useStepScroll } from "../hooks/use-scroll-to";
+import { normalizeFont } from "../utils/normalize-font";
 import { signUpSteps } from "../utils/sign-up-steps";
-import { Button } from "../components/button";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function Home() {
   const [stepsCompleted, setStepsCompleted] = useState<string[]>(["account"]);
@@ -74,11 +70,12 @@ export default function Home() {
           </StepFormWrapper>
 
           <StepFormWrapper style={{ width: stepFormComponentWidth }}>
-            <View
-              style={{ flexDirection: "row", alignItems: "center", gap: 20 }}
-            >
-              <TouchableOpacity onPress={handleGoToPreviousStep}>
-                <Text>Back</Text>
+            <View style={styles.stepFormHeaderContainer}>
+              <TouchableOpacity
+                style={styles.backButtonContainer}
+                onPress={handleGoToPreviousStep}
+              >
+                <ArrowLeftCircle size={normalizeFont(24)} color={"#fff"} />
               </TouchableOpacity>
               <StepFormHeading title="Personal Information" />
             </View>
@@ -96,7 +93,7 @@ export default function Home() {
           </StepFormWrapper>
 
           <StepFormWrapper style={{ width: stepFormComponentWidth }}>
-            <StepFormHeading title="Success!!" />
+            <StepsCompleted />
           </StepFormWrapper>
         </ScrollableContainer>
       </View>
@@ -120,7 +117,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   signUpHeading: {
-    fontSize: 20,
+    fontSize: normalizeFont(20),
     color: "#fff",
     textTransform: "capitalize",
   },
@@ -129,6 +126,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  stepFormHeaderContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  backButtonContainer: {
+    padding: 8,
   },
   fieldsWrapper: {
     gap: 16,
