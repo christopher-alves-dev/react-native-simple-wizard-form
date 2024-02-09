@@ -42,7 +42,7 @@ $ npx expo start
 
 ## Main Feature:
 
-- Simple layout of a wizard form with snap horizontal scroll.
+- Simple layout of a wizard form with horizontal scroll snap.
 
 ## Next Features:
 
