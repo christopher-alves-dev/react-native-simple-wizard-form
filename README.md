@@ -8,7 +8,7 @@
 ## The Application
 
 This is an application that contains the layout of a simple wizard form for mobile applications.
-The purpose of the project is to have a form that, when proceeding to the next step, scrolls horizontally in a snap style, so it does not contain any form validation.
+The purpose of the project is to have a form that, when proceeding to the next step, scrolls horizontally in a snap style, so it does not contain any form validation, yet.
 
 ## Technologies Used:
 
@@ -32,7 +32,6 @@ $ git clone git@github.com:christopher-alves-dev/react-native-simple-wizard-form
 ##### Access this repo #####
 $ cd react-native-simple-wizard-form
 
-
 ##### Run the application #####
 $ npx expo start
 ```
@@ -41,10 +40,12 @@ $ npx expo start
 
 - Simple layout of a wizard form with snap horizontal scroll.
 
-## Next Features: 
+## Next Features:
+
 - State form management with React Hook Form;
 - Form Validation with Zod;
-- Refactor application with Nativewind; 
+- Refactor application with Nativewind;
+
 ---
 
 Made with 💜 by Christopher Alves :wave: [Get in touch!](https://www.linkedin.com/in/chrisleoalves/)
