@@ -3,18 +3,15 @@ import React, { PropsWithChildren } from "react";
 import { StyleSheet, Text } from "react-native";
 
 type Props = {
-  isComplete?: boolean;
+  isActive?: boolean;
 };
 
 const StepIndicatorLabel = ({
-  isComplete = false,
+  isActive = false,
   children,
 }: PropsWithChildren<Props>) => {
   return (
-    <Text
-      style={[styles.label, isComplete && styles.isComplete]}
-      numberOfLines={2}
-    >
+    <Text style={[styles.label, isActive && styles.isActive]} numberOfLines={2}>
       {children}
     </Text>
   );
@@ -24,9 +21,9 @@ const styles = StyleSheet.create({
   label: {
     fontSize: normalizeFont(12),
     color: "#e5e7eb",
-  },
-  isComplete: {
     fontWeight: "bold",
+  },
+  isActive: {
     color: "#fff",
   },
 });

@@ -2,15 +2,15 @@ import React, { PropsWithChildren } from "react";
 import { StyleSheet, View } from "react-native";
 
 type Props = {
-  isComplete?: boolean;
+  isActive?: boolean;
 };
 
 const StepIndicatorContainer = ({
-  isComplete = false,
+  isActive = false,
   children,
 }: PropsWithChildren<Props>) => {
   return (
-    <View style={[styles.stepIncomplete, isComplete && styles.stepComplete]}>
+    <View style={[styles.stepIncomplete, isActive && styles.stepComplete]}>
       {children}
     </View>
   );

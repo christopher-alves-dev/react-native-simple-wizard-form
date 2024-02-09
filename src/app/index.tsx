@@ -39,10 +39,10 @@ export default function Home() {
             <StepIndicator.Line />
 
             {signUpSteps.map((step) => {
-              const isComplete = stepsCompleted.includes(step.key);
+              const isActive = stepsCompleted.includes(step.key);
               return (
-                <StepIndicator.Container key={step.key} isComplete={isComplete}>
-                  <StepIndicator.Label isComplete={isComplete}>
+                <StepIndicator.Container key={step.key} isActive={isActive}>
+                  <StepIndicator.Label isActive={isActive}>
                     {step.label}
                   </StepIndicator.Label>
                 </StepIndicator.Container>
