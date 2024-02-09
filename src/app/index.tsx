@@ -10,7 +10,7 @@ import { StepFormHeading } from "../components/step-form-heading";
 import { StepFormWrapper } from "../components/step-form-wrapper";
 import * as StepIndicator from "../components/step-indicator";
 import { StepsCompleted } from "../components/steps-completed";
-import { useStepScroll } from "../hooks/use-scroll-to";
+import { StepsForm, useStepScroll } from "../hooks/use-scroll-to";
 import { normalizeFont } from "../utils/normalize-font";
 import { signUpSteps } from "../utils/sign-up-steps";
 
@@ -22,6 +22,18 @@ export default function Home() {
     handleGoToNextStep,
     handleGoToPreviousStep,
   } = useStepScroll();
+
+  const handlePressNextStep = (nextStep: StepsForm) => {
+    setStepsCompleted((prevState) => [...prevState, nextStep]);
+    handleGoToNextStep(nextStep);
+  };
+
+  const handlePressBackButton = (currentStep: string) => {
+    setStepsCompleted((prevState) =>
+      prevState.filter((step) => step !== currentStep),
+    );
+    handleGoToPreviousStep();
+  };
 
   return (
     <KeyboardAwareScrollView
@@ -65,7 +77,9 @@ export default function Home() {
 
             <Button
               title="Next Step"
-              onPress={() => handleGoToNextStep("account")}
+              onPress={() => {
+                handlePressNextStep("personal");
+              }}
             />
           </StepFormWrapper>
 
@@ -73,7 +87,9 @@ export default function Home() {
             <View style={styles.stepFormHeaderContainer}>
               <TouchableOpacity
                 style={styles.backButtonContainer}
-                onPress={handleGoToPreviousStep}
+                onPress={() => {
+                  handlePressBackButton("personal");
+                }}
               >
                 <ArrowLeftCircle size={normalizeFont(24)} color={"#fff"} />
               </TouchableOpacity>
@@ -88,7 +104,9 @@ export default function Home() {
 
             <Button
               title="Next step"
-              onPress={() => handleGoToNextStep("personal")}
+              onPress={() => {
+                handlePressNextStep("complete");
+              }}
             />
           </StepFormWrapper>
 
