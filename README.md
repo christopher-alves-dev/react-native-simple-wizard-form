@@ -3,8 +3,6 @@
   <p align="center">The Chris Code - Simple Wizard Form</p>
 </h1>
 
-# ⚠️ Under Construction
-
 ## The Application
 
 This is an application that contains the layout of a simple wizard form for mobile applications.
