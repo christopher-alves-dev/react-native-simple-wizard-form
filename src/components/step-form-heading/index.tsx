@@ -1,4 +1,5 @@
 import { normalizeFont } from "@/src/utils/normalize-font";
+import { theme } from "@/src/utils/theme";
 import React from "react";
 import { StyleProp, StyleSheet, Text, TextStyle } from "react-native";
 
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
   heading: {
     flexGrow: 1,
     fontSize: normalizeFont(20),
-    color: "#fff",
+    color: theme.colors.offWhite,
     textTransform: "capitalize",
   },
 });

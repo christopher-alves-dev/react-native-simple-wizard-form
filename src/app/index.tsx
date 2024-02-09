@@ -13,6 +13,7 @@ import { StepsCompleted } from "../components/steps-completed";
 import { StepsForm, useStepScroll } from "../hooks/use-scroll-to";
 import { normalizeFont } from "../utils/normalize-font";
 import { signUpSteps } from "../utils/sign-up-steps";
+import { theme } from "../utils/theme";
 
 export default function Home() {
   const [stepsCompleted, setStepsCompleted] = useState<string[]>(["account"]);
@@ -54,9 +55,7 @@ export default function Home() {
               const isActive = stepsCompleted.includes(step.key);
               return (
                 <StepIndicator.Container key={step.key} isActive={isActive}>
-                  <StepIndicator.Label isActive={isActive}>
-                    {step.label}
-                  </StepIndicator.Label>
+                  <StepIndicator.Label>{step.label}</StepIndicator.Label>
                 </StepIndicator.Container>
               );
             })}
@@ -91,7 +90,10 @@ export default function Home() {
                   handlePressBackButton("personal");
                 }}
               >
-                <ArrowLeftCircle size={normalizeFont(24)} color={"#fff"} />
+                <ArrowLeftCircle
+                  size={normalizeFont(24)}
+                  color={theme.colors.offWhite}
+                />
               </TouchableOpacity>
               <StepFormHeading title="Personal Information" />
             </View>
@@ -123,12 +125,12 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: theme.colors.offWhite,
   },
   signUpContainer: {
     width: "100%",
     borderRadius: 2,
-    backgroundColor: "#2d0381",
+    backgroundColor: theme.colors.background,
   },
   signUpHeader: {
     gap: 20,
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
   },
   signUpHeading: {
     fontSize: normalizeFont(20),
-    color: "#fff",
+    color: theme.colors.offWhite,
     textTransform: "capitalize",
   },
   stepsIndicatorContainer: {

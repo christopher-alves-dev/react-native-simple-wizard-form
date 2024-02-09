@@ -1,3 +1,4 @@
+import { theme } from "@/src/utils/theme";
 import React, { PropsWithChildren } from "react";
 import { StyleSheet, View } from "react-native";
 
@@ -24,10 +25,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 4,
     paddingHorizontal: 8,
-    backgroundColor: "#9ca3af",
+    backgroundColor: theme.colors.disabled,
   },
   stepComplete: {
-    backgroundColor: "#22c55e",
+    backgroundColor: theme.colors.success,
   },
 });
 

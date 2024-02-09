@@ -1,6 +1,7 @@
 import { normalizeFont } from "@/src/utils/normalize-font";
 import React from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { theme } from "@/src/utils/theme";
 
 type Props = {
   onPress: () => void;
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: "#9500ff",
+    backgroundColor: theme.colors.primary,
   },
   text: {
     width: "100%",
@@ -33,6 +34,6 @@ const styles = StyleSheet.create({
     fontSize: normalizeFont(16),
     textTransform: "uppercase",
     fontWeight: "bold",
-    color: "#fff",
+    color: theme.colors.offWhite,
   },
 });

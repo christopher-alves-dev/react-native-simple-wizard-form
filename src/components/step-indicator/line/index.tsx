@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { theme } from "@/src/utils/theme";
 
 const StepIndicatorLine = () => {
   return <View style={styles.container} />;
@@ -10,7 +11,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: 1,
     width: "100%",
-    backgroundColor: "white",
+    backgroundColor: theme.colors.offWhite,
   },
 });
 

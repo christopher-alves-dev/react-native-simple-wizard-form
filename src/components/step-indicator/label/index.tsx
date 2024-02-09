@@ -1,17 +1,11 @@
 import { normalizeFont } from "@/src/utils/normalize-font";
-import React, { PropsWithChildren } from "react";
+import { theme } from "@/src/utils/theme";
+import React, { ReactNode } from "react";
 import { StyleSheet, Text } from "react-native";
 
-type Props = {
-  isActive?: boolean;
-};
-
-const StepIndicatorLabel = ({
-  isActive = false,
-  children,
-}: PropsWithChildren<Props>) => {
+const StepIndicatorLabel = ({ children }: { children: ReactNode }) => {
   return (
-    <Text style={[styles.label, isActive && styles.isActive]} numberOfLines={2}>
+    <Text style={styles.label} numberOfLines={2}>
       {children}
     </Text>
   );
@@ -20,11 +14,8 @@ const StepIndicatorLabel = ({
 const styles = StyleSheet.create({
   label: {
     fontSize: normalizeFont(12),
-    color: "#e5e7eb",
+    color: theme.colors.offWhite,
     fontWeight: "bold",
-  },
-  isActive: {
-    color: "#fff",
   },
 });
 

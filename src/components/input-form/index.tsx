@@ -1,5 +1,6 @@
 import { normalizeByPlatform } from "@/src/utils/normalize-by-platform";
 import { normalizeFont } from "@/src/utils/normalize-font";
+import { theme } from "@/src/utils/theme";
 import React from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
@@ -22,13 +23,13 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: normalizeFont(16),
-    color: "#fff",
+    color: theme.colors.offWhite,
     textTransform: "capitalize",
   },
   input: {
     paddingHorizontal: normalizeByPlatform(8, 8),
     paddingVertical: normalizeByPlatform(4, 10),
-    backgroundColor: "#fff",
+    backgroundColor: theme.colors.offWhite,
     borderRadius: normalizeByPlatform(2, 2),
   },
 });

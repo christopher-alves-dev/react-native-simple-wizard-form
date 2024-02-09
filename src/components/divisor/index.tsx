@@ -1,3 +1,4 @@
+import { theme } from "@/src/utils/theme";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
@@ -11,6 +12,6 @@ const styles = StyleSheet.create({
     bottom: -20,
     height: 1,
     width: "100%",
-    backgroundColor: "#f3f4f6",
+    backgroundColor: theme.colors.disabled,
   },
 });
